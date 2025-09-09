@@ -4,23 +4,28 @@ import lab4.ShapeType;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class Game extends Canvas {
-
-    private Shape[] shapes;  // Array of balls
+      private ArrayList<Shape> shapes;
+//    private Shape[] shapes;  // Array of balls
 
     public Game() {
         // Set world dimensions for all balls
         Shape.setWorld(300, 300);
-
+        shapes = new ArrayList<Shape>();
         // Create 3 balls
-        shapes = new Shape[] {
-                new Shape(50, 50, 20, 20, 2, 3, ShapeType.ROUNDRECTANGLE),
-                new Shape(100, 150, 30, 30), // uses default OVAL type
-                new Shape(200, 100, 25, 25, -2, 1, ShapeType.OVAL)
-        };
+
+        shapes.add(new Shape(50, 50, 20, 20, 2, 3, ShapeType.ROUNDRECTANGLE));
+        shapes.add(new Shape(100, 150, 30, 30));
+        shapes.add(new Shape(200, 100, 25, 25, -2, 1, ShapeType.OVAL));
+//        shapes = new Shape[] {
+//                new Shape(50, 50, 20, 20, 2, 3, ShapeType.ROUNDRECTANGLE),
+//                new Shape(100, 150, 30, 30), // uses default OVAL type
+//                new Shape(200, 100, 25, 25, -2, 1, ShapeType.OVAL)
+//        };
 
         JFrame frame = new JFrame("Bouncing Balls");
         this.setSize(400, 400);
